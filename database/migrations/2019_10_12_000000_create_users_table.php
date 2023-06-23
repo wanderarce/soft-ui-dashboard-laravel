@@ -23,6 +23,10 @@ class CreateUsersTable extends Migration
             $table->string('about_me')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->unsignedBigInteger('role_id');
+            $table->foreign('role_id')->references('id')->on('roles');
+            $table->boolean("active")->nullable()->default(1);
+
         });
     }
 

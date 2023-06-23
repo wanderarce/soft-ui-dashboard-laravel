@@ -15,13 +15,19 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'id' => 1,
-            'name' => 'admin',
-            'email' => 'admin@softui.com',
-            'password' => Hash::make('secret'),
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
+        $roles = DB::table("roles")
+        ->orderBy("id")->get();
+        foreach($roles as $role){
+            DB::table('users')->insert([
+                'id' =>  $role->id,
+                'name' => $role->name,
+                'email' => $role->name.'@softui.com',
+                'password' => Hash::make('secret'),
+                'created_at' => now(),
+                'updated_at' => now(),
+                'role_id' => $role->id
+            ]);
+
+        }
     }
 }

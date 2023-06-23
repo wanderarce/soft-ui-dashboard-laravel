@@ -1,7 +1,7 @@
 @extends('layouts.user_type.auth')
 
 @section('content')
-11111111111111111111
+
 <div>
     <div class="container-fluid">
         <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('../assets/img/curved-images/curved0.jpg'); background-position-y: 50%;">
@@ -20,7 +20,7 @@
                 <div class="col-auto my-auto">
                     <div class="h-100">
                         <h5 class="mb-1">
-                            {{ __('Alec Thompson') }}
+                            {{ __($user->name) }}
                         </h5>
                         <p class="mb-0 font-weight-bold text-sm">
                             {{ __(' CEO / Co-Founder') }}
